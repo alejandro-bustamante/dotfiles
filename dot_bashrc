@@ -1,0 +1,178 @@
+#TO USE COLOR IN LS-TAB USE THIS LINE IN /etc/inputrc
+#set colored-stats on
+#
+# ~/.bashrc
+
+#Set text editor to vim
+export EDITOR=vim
+
+#to make the git brach on the prompt
+source ~/.git-prompt.sh
+
+# Function to check if in a git repository and set PS1 accordingly
+set_prompt() {
+    if git rev-parse --is-inside-work-tree &>/dev/null; then
+        PS1_CMD1=$(__git_ps1 " (%s)")
+        PS1='\[\e[48;5;111m\] \[\e[38;5;232;48;5;111m\]\u\[\e[0;48;5;111m\] \[\e[38;5;111;48;5;152;1m\]\[\e[22;39m\] \[\e[38;5;232m\]\W\[\e[39m\] \[\e[38;5;152;48;5;60m\]\[\e[39m\] \[\e[38;5;232m\]\[\e[38;5;232m\]${PS1_CMD1}\[\e[0;38;5;60m\]\[\e[0m\]\$'
+    else
+        PS1='\[\e[48;5;111m\] \[\e[38;5;232;48;5;111m\]\u\[\e[0;48;5;111m\] \[\e[38;5;111;48;5;152;1m\]\[\e[0;48;5;152m\] \[\e[38;5;232;48;5;152m\]\W\[\e[0;48;5;152m\] \[\e[0;38;5;152m\]\[\e[0m\]\$'
+    fi
+}
+
+PROMPT_COMMAND=set_prompt
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+# my aliases
+alias neofetch='fastfetch'
+alias cmus='cmusd'
+alias emulator='~/Android/Sdk/emulator/emulator'
+export d=/run/media/alejandro/juegos
+export repository=/home/alejandro/nvme/Repositorios
+export repositoryPers=/home/alejandro/nvme/Repositorios/Personal
+export repositoryDev=/home/alejandro/nvme/Repositorios/Developer
+export repositoryUni=/home/alejandro/nvme/Repositorios/Personal/Universidad
+
+#for flutter
+export PATH="$PATH:$HOME/dev/flutter/bin"
+
+# Android SDK
+#export ANDROID_HOME="/home/alejandro/Android/Sdk"
+
+# go
+export PATH="$PATH:$HOME/go/bin"
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+
+
+#sancho-streamrip
+export PATH="$PATH:$HOME/nvme/Repositorios/Developer/streamrip-sancho/streamrip/bin/usr/bin"
+
+# ruby gems
+export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+export CUCUMBER_PUBLISH_ENABLED=true
+
+
+
+#to set a chrome executable so flutter can use it for web dev
+export CHROME_EXECUTABLE="/usr/bin/vivaldi"
+alias adb='/home/alejandro/Android/Sdk/platform-tools/adb'
+
+#intellij
+alias intellij='/home/alejandro/intellij/idea-IC-242.20224.419/bin/idea'
+
+#for java
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+#export JAVA_HOME=/usr/lib/jvm/java-25-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
+
+#--------------------------
+#sonarqube
+export SONAR_JAVA_PATH=/usr/lib/jvm/java-17-openjdk/bin/java
+alias sonar-scanner='/opt/sonar-scanner/bin/sonar-scanner'
+#--------------------------
+
+
+# set vi mode for bash
+set -o vi
+
+# History configs
+HISTTIMEFORMAT="%F %T "
+HISTCONTROL=ignoredups
+HISTSIZE=2000
+HISTFILESIZE=3000
+
+# cd to folder with just the path
+shopt -s autocd
+# fix typos when cd-ing into directories
+shopt -s cdspell
+# fix typos when TAB completing a directory
+shopt -s dirspell
+shopt -s direxpand
+# case insensitive completion
+shopt -s nocaseglob
+# setting to allow alias for cd commands
+shopt -s cdable_vars
+# TAB completion is case insensitive
+bind -s 'set completion-ignore-case on'
+
+# Created by `pipx` on 2024-10-25 16:19:57
+export PATH="$PATH:/home/alejandro/.local/bin"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# Turso
+export PATH="$PATH:/home/alejandro/.turso"
+
+#config location to work with ghostty
+export XDG_CONFIG_HOME=/home/alejandro/.config
+
+
+
+###-begin-flutter-completion-###
+
+if type complete &>/dev/null; then
+  __flutter_completion() {
+    local si="$IFS"
+    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
+                           COMP_LINE="$COMP_LINE" \
+                           COMP_POINT="$COMP_POINT" \
+                           flutter completion -- "${COMP_WORDS[@]}" \
+                           2>/dev/null)) || return $?
+    IFS="$si"
+  }
+  complete -F __flutter_completion flutter
+elif type compdef &>/dev/null; then
+  __flutter_completion() {
+    si=$IFS
+    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
+                 COMP_LINE=$BUFFER \
+                 COMP_POINT=0 \
+                 flutter completion -- "${words[@]}" \
+                 2>/dev/null)
+    IFS=$si
+  }
+  compdef __flutter_completion flutter
+elif type compctl &>/dev/null; then
+  __flutter_completion() {
+    local cword line point words si
+    read -Ac words
+    read -cn cword
+    let cword-=1
+    read -l line
+    read -ln point
+    si="$IFS"
+    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
+                       COMP_LINE="$line" \
+                       COMP_POINT="$point" \
+                       flutter completion -- "${words[@]}" \
+                       2>/dev/null)) || return $?
+    IFS="$si"
+  }
+  compctl -K __flutter_completion flutter
+fi
+
+###-end-flutter-completion-###
+
+## Generated 2024-12-24 16:20:51.350056Z
+## By /home/alejandro/dev/flutter/bin/cache/flutter_tools.snapshot
+. "$HOME/.cargo/env"
+
+
+
+# MOHAA
+alias MOHAA="/home/alejandro/nvme/mohaa/main/launch_openmohaa_base.x86_64 +set fs_basepath /home/alejandro/nvme/mohaa"
+
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# zed
+alias zed="zeditor"
