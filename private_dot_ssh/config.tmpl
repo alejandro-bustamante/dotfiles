@@ -1,0 +1,27 @@
+# ~/.ssh/config gestionado por chezmoi
+
+Host github.com
+    User git
+    AddKeysToAgent yes
+
+Match host github.com exec "pwd | grep -E '(/Repositorios/Developer|/.local/share/chezmoi)'"
+    IdentityFile {{ .chezmoi.homeDir }}/.ssh/github-keys/developer-key
+    IdentitiesOnly yes
+
+Match host github.com exec "pwd | grep '/Repositorios/Personal'"
+    IdentityFile {{ .chezmoi.homeDir }}/.ssh/github-keys/personal-key
+    IdentitiesOnly yes
+
+Host perfumeria-server
+    HostName {{ (keepassxc "SSH_Hetzner").URL }}
+    User root
+    IdentityFile {{ .chezmoi.homeDir }}/.ssh/hetzner_perfumeria
+    RemoteCommand bash --rcfile ~/.ssh/remote_bashrc
+    RequestTTY yes
+    LocalCommand scp -i {{ .chezmoi.homeDir }}/.ssh/hetzner_perfumeria {{ .chezmoi.homeDir }}/.ssh/remote_bashrc %r@%h:.ssh/
+    PermitLocalCommand yes
+
+Host bustamante-server
+    HostName {{ (keepassxc "SSH_Bustamante-server").URL }}
+    User bustamante
+    RequestTTY yes
