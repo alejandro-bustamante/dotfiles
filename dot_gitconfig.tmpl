@@ -1,0 +1,26 @@
+[user]
+    name = Alejandro Bustamante
+    email = alejandro.bustamante.dc@gmail.com
+
+[init]
+    defaultBranch = main
+
+[core]
+    editor = vim
+    sshCommand = ssh
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[includeIf "gitdir:{{ keepassxcAttribute "SSH_Developer" "Git_repo_path" }}"]
+    #path = ~/nvme/Repositorios/Developer/.gitconfig-dev
+    path = ~/.gitconfig-dev
+
+[includeIf "gitdir:{{ keepassxcAttribute "SSH_Personal" "Git_repo_path" }}"]
+    path = ~/.gitconfig-pers
+
+[includeIf "gitdir:~/.local/share/chezmoi/"]
+    path = ~/.gitconfig-dev

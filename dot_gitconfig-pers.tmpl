@@ -1,0 +1,6 @@
+[user]
+    name = {{ keepassxcAttribute "SSH_Personal" "Name" }}
+    email = {{ (keepassxc "SSH_Personal").UserName }}
+    
+[core]
+    sshCommand = ssh -F ~/.ssh/config
