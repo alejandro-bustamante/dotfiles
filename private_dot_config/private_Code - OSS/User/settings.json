@@ -1,0 +1,112 @@
+{
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [],
+    "editor.selectionHighlight": false,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  },
+  "editor.rulers": [],
+  "editor.lineNumbers": "relative",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Tokyo Night",
+
+  "vim.leader": "<Space>",
+  "git.openRepositoryInParentFolders": "never",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-f>": true,
+    "<C-b>": true,
+    "<C-u>": true
+  },
+  "vim.normalModeKeyBindings": [
+    // File explorer
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    // Create new file
+    {
+      "before": ["<leader>", "n", "f"],
+      "commands": ["explorer.newFile"]
+    },
+    // Create new folder
+    {
+      "before": ["<leader>", "n", "d"],
+      "commands": ["explorer.newFolder"]
+    },
+    // Searching for files
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    // Searching text inside files
+    {
+      "before": ["<leader>", "f", "w"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    // Close current tab
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    // Comment lines in normal mode
+    {
+      "before": ["<leader>", "/"],
+      "commands": ["editor.action.commentLine"]
+    },
+    // Return to editor from various UI elements
+    {
+      "before": ["<Esc>"],
+      "commands": ["workbench.action.focusActiveEditorGroup"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    // Indent selected text
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    // Comment lines in visual mode
+    {
+      "before": ["<leader>", "/"],
+      "commands": ["editor.action.commentLine"]
+    }
+  ],
+  // Configuraciones adicionales de Vim
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.easymotion": true,
+  "vim.surround": true,
+  // Configuraciones para el explorador de archivos
+  "explorer.confirmDelete": true,
+  "explorer.confirmDragAndDrop": true,
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": false,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "zig.zls.enabled": "on",
+  "svelte.enable-ts-plugin": true,
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "window.menuBarVisibility": "compact"
+}
