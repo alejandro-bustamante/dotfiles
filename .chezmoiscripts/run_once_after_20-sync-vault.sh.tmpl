@@ -1,0 +1,38 @@
+#!/bin/bash
+
+LOCAL_DB_DIR="$HOME/vault/db"
+REMOTE_DB_DIR="/vault"
+
+
+PASSWORD="{{ (keepassxc "MEGA").Password }}"
+SYNC_SCRIPT_DIR="{{ .chezmoi.homeDir }}/.local/share/chezmoi/.chezmoiscripts/run_once_after_20-sync-vault.sh"
+EMAIL="{{ (keepassxc "MEGA").UserName }}"
+
+echo "Synching local db to Mega..."
+
+if ! command -v mega-ls &> /dev/null; then
+    echo "mega-cmd is not installed, skipping synch."
+    exit 0
+fi
+
+if ! mega-whoami &> /dev/null; then
+    echo "Not logged, trying to login..."
+    if ! mega-login "$EMAIL" "$PASSWORD"; then
+        echo "Error logging in."
+        exit 1
+    fi
+    echo "Login successful"
+fi
+
+
+echo "Removing the remote directory in $REMOTE_DB_DIR..."
+mega-rm -rf "$REMOTE_DB_DIR" || true
+
+echo "Creating new remote directory in $REMOTE_DB_DIR..."
+mega-mkdir "$REMOTE_DB_DIR"
+
+echo "Synching..."
+mega-sync "$LOCAL_DB_DIR" "$REMOTE_DB_DIR"
+
+echo "Synching completed."
+echo "PLEASE UPDATE MANUALLY THE URL TO THE DB IN THE FILE: $SYNC_SCRIPT_DIR."
