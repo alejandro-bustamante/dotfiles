@@ -1,0 +1,37 @@
+actions:
+  - action: package.install
+    list:
+      - 7zip
+      - btop 
+      - clang
+      - cmake
+      - code 
+      - colordiff
+      - docker
+      - duf
+      - fastfetch
+      - flatpak
+      - git
+      - go
+      - inkscape
+      - jdk17-openjdk
+      - jq
+      - keepassxc
+      - less
+      - libreoffice-fresh
+      - mediainfo
+      - nvm
+      - obs-studio
+      - radeontop
+      - rsync
+      - sqlitebrowser
+      - steam
+      - unrar
+      - unzip
+      - vim
+      - vivaldi
+      - wezterm
+      - wget
+      - zed
+      - zip
+    provider: pacman

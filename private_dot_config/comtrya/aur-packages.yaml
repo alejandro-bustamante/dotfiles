@@ -1,0 +1,8 @@
+actions:
+  - action: package.install
+    list:
+      - android-studio
+      - droidcam
+      - jdownloader-2
+      - balena-cli-bin
+    provider: yay
