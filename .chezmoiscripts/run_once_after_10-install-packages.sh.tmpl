@@ -1,14 +1,11 @@
 #!/bin/bash
 
-echo "Running Comtrya..."
+echo "Running Comtrya for user packages..."
+
+# Comtrya ya debe estar instalado por el bootstrap.
 if ! command -v comtrya &> /dev/null; then
-    echo "Installing Comtrya binary..."
-
-    curl -L -o /tmp/comtrya https://github.com/comtrya/comtrya/releases/download/v0.9.2/comtrya-x86_64-unknown-linux-gnu
-    chmod +x /tmp/comtrya
-    sudo mv /tmp/comtrya /usr/local/bin/comtrya
-
-    echo "Comtrya installed successfully"
+    echo "Comtrya not found! Something went wrong in bootstrap."
+    exit 1
 fi
 
-sudo comtrya -d "{{ .chezmoi.homeDir }}/.config/comtrya/ apply -m pacman-packages, aur-packages
+sudo comtrya -d "{{ .chezmoi.homeDir }}/.config/comtrya/" apply -m pacman-packages, aur-packages

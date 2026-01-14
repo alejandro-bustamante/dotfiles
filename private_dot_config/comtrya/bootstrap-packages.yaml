@@ -1,0 +1,12 @@
+actions:
+  - action: package.install
+    list:
+      - git
+      - keepassxc
+      - chezmoi
+    provider: pacman
+
+  - action: package.install
+    list:
+      - megacmd-bin
+    provider: yay
