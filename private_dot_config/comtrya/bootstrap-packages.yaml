@@ -9,4 +9,4 @@ actions:
   - action: package.install
     list:
       - megacmd-bin
-    provider: yay
+    provider: paru
