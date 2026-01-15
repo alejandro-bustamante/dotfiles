@@ -9,10 +9,11 @@ actions:
       - colordiff
       - docker
       - duf
-      - fastfetch
+      - ffmpeg
       - flatpak
       - git
       - go
+      - haruna
       - inkscape
       - jdk17-openjdk
       - jq

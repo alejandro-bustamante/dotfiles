@@ -3,6 +3,7 @@ actions:
     list:
       - android-studio
       - droidcam
+      - heroic-games-launcher-bin
       - jdownloader-2
-      - balena-cli-bin
-    provider: yay
+      - qrookie-vrp
+    provider: paru
