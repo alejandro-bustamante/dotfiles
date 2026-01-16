@@ -1,9 +1,0 @@
-actions:
-  - action: package.install
-    list:
-      - android-studio
-      - droidcam
-      - heroic-games-launcher-bin
-      - jdownloader-2
-      - qrookie-vrp
-    provider: paru

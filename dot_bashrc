@@ -105,7 +105,7 @@ export PATH="$PATH:/home/alejandro/.local/bin"
 
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+#source <(ng completion script)
 
 # Turso
 export PATH="$PATH:/home/alejandro/.turso"
@@ -162,7 +162,7 @@ fi
 
 ## Generated 2024-12-24 16:20:51.350056Z
 ## By /home/alejandro/dev/flutter/bin/cache/flutter_tools.snapshot
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
 
 
 
