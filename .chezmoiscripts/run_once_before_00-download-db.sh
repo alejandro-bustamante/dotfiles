@@ -4,7 +4,7 @@
 DB_DIR="$HOME/vault/db"
 KEY_DIR="$HOME/vault/key"
 DB_FILE="$DB_DIR/db.kdbx"
-URL_DB="https://mega.nz/file/XuBTjCiZ#rMEkddANxplU9Qjm2P7jRND0_NxN_icawV2qxuTym0E" 
+URL_DB="https://mega.nz/file/CuZSSQqR#Na89z0EPvcj0U7u5qLZsxGYqGO8B11cu_qiA5JmteLs" 
 
 echo "Starting Database Setup..."
 
