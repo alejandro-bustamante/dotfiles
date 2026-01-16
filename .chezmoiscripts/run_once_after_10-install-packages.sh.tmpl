@@ -11,4 +11,4 @@ if ! command -v comtrya &> /dev/null; then
     echo "Comtrya installed successfully"
 fi
 
-sudo comtrya -d "{{ .chezmoi.homeDir }}/.config/comtrya/" apply -m pacman-packages, aur-packages
+sudo comtrya -d "{{ .chezmoi.homeDir }}/.config/comtrya/" apply
