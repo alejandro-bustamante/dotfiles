@@ -10,7 +10,7 @@ config.window_padding = {
 }
 -- -----------------GENERAL APEARANCE-----------------
 config.color_scheme = "Moonfly (Gogh)"
-config.use_fancy_tab_bar = false
+config.use_fancy_tab_bar = true
 config.window_background_opacity = 0.97
 config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 90
