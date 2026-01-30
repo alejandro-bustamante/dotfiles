@@ -10,7 +10,6 @@
   "editor.rulers": [],
   "editor.lineNumbers": "relative",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Tokyo Night",
 
   "vim.leader": "<Space>",
   "git.openRepositoryInParentFolders": "never",
@@ -108,5 +107,6 @@
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
-  "window.menuBarVisibility": "compact"
+  "window.menuBarVisibility": "compact",
+  "workbench.colorTheme": "chalice-color-theme-dark"
 }

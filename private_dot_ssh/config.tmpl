@@ -21,6 +21,15 @@ Host perfumeria-server
     LocalCommand scp -i {{ .chezmoi.homeDir }}/.ssh/hetzner_perfumeria {{ .chezmoi.homeDir }}/.ssh/remote_bashrc %r@%h:.ssh/
     PermitLocalCommand yes
 
+Host cobros-server
+    HostName {{ (keepassxc "SSH_Hetzner_Cobros").URL }}
+    User root
+    IdentityFile {{ .chezmoi.homeDir }}/.ssh/hetzner_cobros
+    RemoteCommand bash --rcfile ~/.ssh/remote_bashrc
+    RequestTTY yes
+    LocalCommand scp -i {{ .chezmoi.homeDir }}/.ssh/hetzner_cobros {{ .chezmoi.homeDir }}/.ssh/remote_bashrc %r@%h:.ssh/
+    PermitLocalCommand yes
+
 Host bustamante-server
     HostName {{ (keepassxc "SSH_Bustamante-server").URL }}
     User bustamante
