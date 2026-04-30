@@ -33,9 +33,9 @@ alias cmus='cmusd'
 alias emulator='~/Android/Sdk/emulator/emulator'
 export d=/run/media/alejandro/juegos
 export repository=/home/alejandro/nvme/Repositorios
-export repositoryPers=/home/alejandro/nvme/Repositorios/Personal
-export repositoryDev=/home/alejandro/nvme/Repositorios/Developer
-export repositoryUni=/home/alejandro/nvme/Repositorios/Personal/Universidad
+export pers=/home/alejandro/nvme/Repositorios/Personal
+export dev=/home/alejandro/nvme/Repositorios/Developer
+export uni=/home/alejandro/nvme/Repositorios/Personal/Universidad
 
 #for flutter
 export PATH="$PATH:$HOME/dev/flutter/bin"
