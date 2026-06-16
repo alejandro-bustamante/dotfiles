@@ -4,12 +4,20 @@ Host github.com
     User git
     AddKeysToAgent yes
 
+Host codeberg.org
+    User git
+    AddKeysToAgent yes
+
 Match host github.com exec "pwd | grep -E '(/Repositorios/Developer|/.local/share/chezmoi)'"
     IdentityFile {{ .chezmoi.homeDir }}/.ssh/github-keys/developer-key
     IdentitiesOnly yes
 
 Match host github.com exec "pwd | grep '/Repositorios/Personal'"
     IdentityFile {{ .chezmoi.homeDir }}/.ssh/github-keys/personal-key
+    IdentitiesOnly yes
+
+Match host codeberg.org exec "pwd | grep -E '(/Repositorios/Developer|/.local/share/chezmoi)'"
+    IdentityFile {{ .chezmoi.homeDir }}/.ssh/codeberg-keys/developer-key
     IdentitiesOnly yes
 
 Host perfumeria-server

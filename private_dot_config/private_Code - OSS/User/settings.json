@@ -107,6 +107,15 @@
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
+  "[templ]": {
+    "editor.defaultFormatter": "a-h.templ"
+  },
   "window.menuBarVisibility": "compact",
   "workbench.colorTheme": "chalice-color-theme-dark"
+  "chat.agent.enabled": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "tailwindCSS.includeLanguages": {
+    "templ": "html"
+  },
+  "notebook.lineNumbers": "on"
 }
