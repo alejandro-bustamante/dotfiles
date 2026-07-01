@@ -5,6 +5,8 @@
 
 #Set text editor to vim
 export EDITOR=vim
+export SYSTEMD_EDITOR=vim
+export VISUAL=vim
 
 #to make the git brach on the prompt
 source ~/.git-prompt.sh
